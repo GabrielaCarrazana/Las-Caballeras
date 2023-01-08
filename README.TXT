@@ -11,6 +11,9 @@ node app.js
 ****Inicializar los datos
 node init-db.js
 
+***Añadir Anuncio
+http://127.0.0.1:3000/api/listadeanuncios?name=nevera&precio=100&vender=false&tag=electrodomesticos&foto=image.jpg
+
 
 
 
@@ -42,5 +45,3 @@ http://127.0.0.1:3000/api/listadeanuncios?max=200
 http://127.0.0.1:3000/images/anuncios.jpeg
 http://127.0.0.1:3000/images/img.pngb
 
-***Añadir Anuncio
-http://127.0.0.1:3000/api/listadeanuncios?name=nevera&precio=100&vender=false&tag=electrodomesticos&foto=image.jpg
