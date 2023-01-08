@@ -30,14 +30,17 @@ http://127.0.0.1:3000/api/listadeanuncios?venta=false
 http://127.0.0.1:3000/api/listadeanuncios?name=Bic
 
 ****Para buscar entre un rango de precios
-http://127.0.0.1:3000/api/listadeanuncios?min=10&max=40
+http://127.0.0.1:3000/api/listadeanuncios?min=100&max=300
 
 ****Para buscar a partir de un precio minimo
 http://127.0.0.1:3000/api/listadeanuncios?min=10
 
 ****Para buscar a partir de un precio maximo
-http://127.0.0.1:3000/api/listadeanuncios?max=40
+http://127.0.0.1:3000/api/listadeanuncios?max=200
 
 ***Acceder a las imagenes
 http://127.0.0.1:3000/images/anuncios.jpeg
 http://127.0.0.1:3000/images/img.pngb
+
+***Añadir Anuncio
+http://127.0.0.1:3000/api/listadeanuncios?name=nevera&precio=100&vender=false&tag=electrodomesticos&foto=image.jpg

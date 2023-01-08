@@ -1,8 +1,13 @@
 // conectar a la base de datos
+const readline = require('readline');
 const connection = require('./lib/ConectToMongoose');
 const Anuncio = require('./models/Anuncio');
 
 async function main() {
+// preguntar al usuario si está seguro
+        const continuar = await preguntaSiNo('Estas seguro, seguro, seguro, que quieres borrar la base de datos? [n]')
+        if (!continuar) {
+                process.exit();}
 
 // inicializar la colección de agentes
 await initAgentes();
@@ -39,4 +44,20 @@ const inserted = await Anuncio.insertMany([
         
 ]);
 console.log(`Creados ${inserted.length} anuncios.`)
+}
+function preguntaSiNo(texto) {
+return new Promise((resolve, reject) => {
+        const interface = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+        });
+        interface.question(texto, respuesta => {
+        interface.close();
+        if (respuesta.toLowerCase() === 'si') {
+        resolve(true);
+        return;
+        }
+        resolve(false);
+        })
+})
 }

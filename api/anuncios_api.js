@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express')
 const Anuncio = require('../models/Anuncio');
+const { query } = require('express');
 const router = express.Router();
 
 //manejo los metodos CRUD
@@ -38,8 +39,7 @@ router.get('/',async (req,res,next)=>{
 
         }
         if (min && max){
-            filtro.precio = { '$gte': min, '$lte': max }
-            console.log(filtro)
+            filtro = {'$and': [{precio: {'$gt': min}},{ precio :{'$lt': max}}]};
         }
         if (min || max){//obtener rango de precios
             if(min){
@@ -83,7 +83,30 @@ router.get('/listadotags',async (req,res,next)=>{
         }})
 
 
+router.post('/', async (req, res, next) => {
+    try {
+        //precojo los datos de query
+        const new_anuncio = {};
+        new_anuncio.tag= []
+        new_anuncio.precio = req.query.precio;
+        new_anuncio.name = req.query.name;
+        new_anuncio.vender=req.query.vender;
+        new_anuncio.tag.push(req.query.tag)
+        new_anuncio.foto = req.query.foto
 
+        
+    
+        // instanciar un nuevo anuncio en memoria
+        const anuncio = new Anuncio(new_anuncio);
+        //guardar anuncio en BD
+        const save_anuncio = anuncio.save();
+    
+        res.json({ result:anuncio});
+    
+    } catch (err) {
+        next(err);
+    }
+    });
 
 
 

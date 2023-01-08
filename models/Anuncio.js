@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 //definir un anuncio
 const anuncioSchema = mongoose.Schema({
-    name: { type: String, unique: true},
-    vender:{type:Boolean},
-    precio:{type:Number},
-    foto:{type:String},
-    tag:{type:Array}
+    name:  String,
+    vender:Boolean,
+    precio:Number,
+    foto:String,
+    tag:[]
     
 });
 
