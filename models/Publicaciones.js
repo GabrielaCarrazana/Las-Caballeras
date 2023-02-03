@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 //definir un anuncio
 const publicacionesSchema = mongoose.Schema({
-    fecha:  String,
+    fecha:  Date,
     usuario: String ,
     texto:String,
     imagen:String,
@@ -17,6 +17,7 @@ publicacionesSchema.statics.lista = function (filtro,skip,limit){
   consultaBD.limit(limit);
   return consultaBD.exec()
 }
+
 
 
 // crear el modelo
