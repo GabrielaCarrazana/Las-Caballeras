@@ -1,7 +1,9 @@
 // conectar a la base de datos
 const readline = require('readline');
 const connection = require('./lib/ConectToMongoose');
-const Anuncio = require('./models/Anuncio');
+const Publicaciones = require('./models/Publicaciones');
+const followers = require('./models/Followers');
+
 
 async function main() {
 // preguntar al usuario si está seguro
@@ -10,7 +12,8 @@ async function main() {
                 process.exit();}
 
 // inicializar la colección de agentes
-await initAgentes();
+await initPublicaciones();
+await initfollowers();
 
 // desconectamos de la base de datos
 connection.close();
@@ -18,32 +21,51 @@ connection.close();
 main().catch(err => console.log('Hubo un error', err));
 
 
-async function initAgentes() {
-// borrar todos los documentos de la colección de agentes
-const result = await Anuncio.deleteMany();
-console.log(`Eliminados ${result.deletedCount} anuncios.`);
+async function initPublicaciones() {
+// borrar todos los documentos de la colección de Publicaciones
+const result = await Publicaciones.deleteMany();
+console.log(`Eliminados ${result.deletedCount} post.`);
 
 // crear agentes iniciales
-const inserted = await Anuncio.insertMany([
+const inserted = await Publicaciones.insertMany([
     
         {
-        "name": "Bicicleta",
-        "vender": true,
-        "precio": 230.15,
-        "foto": "bici.jpg",
-        "tag": [ "lifestyle", "motor"]
+        "fecha": "27/12/2022",
+        "usuario": "Gabriela",
+        "texto": "texto de prueba",
+        "imagen": "bici.jpg",
+        
         },
         {
-        "name": "iPhone 3GS",
-        "vender": false,
-        "precio": 50.00,
-        "foto": "iphone.png",
-        "tag": [ "lifestyle", "mobile"]
+        "fecha": "30/12/2022",
+        "usuario": "Gabriela",
+        "texto": "texto de prueba",
+        "imagen": "bici.jpg",
         }
         
         
 ]);
-console.log(`Creados ${inserted.length} anuncios.`)
+console.log(`Creados ${inserted.length} post.`)
+}
+async function initfollowers() {
+        // borrar todos los documentos de la colección de Publicaciones
+        const result = await followers.deleteMany();
+        console.log(`Eliminados ${result.deletedCount} seguidores.`);
+        
+        // crear agentes iniciales
+        const inserted = await followers.insertMany([
+            
+                {
+                
+                "usuario": "Gabriela",
+                "usuario_seguido": "Claudia",
+                
+                
+                },
+                
+                
+        ]);
+        console.log(`Creados ${inserted.length} seguidores.`)
 }
 function preguntaSiNo(texto) {
 return new Promise((resolve, reject) => {

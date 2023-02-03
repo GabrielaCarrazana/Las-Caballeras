@@ -14,7 +14,7 @@ require('./lib/ConectToMongoose');
 
 
 //rutas a api
-app.use('/api/listadeanuncios', require('./api/anuncios_api'));
+app.use('/api/listadeposts', require('./api/post_api'));
 
 
 
