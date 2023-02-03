@@ -21,7 +21,7 @@ router.get('/',async (req,res,next)=>{
         if (filtro.id){
             const listado = await (Publicaciones.lista({_id:filtro.id}))
             res.json({listado})
-        }else{const listado = await (Publicaciones.lista({$or:[{usuario:filtro.usuario},{texto:filtro.texto},{fecha:filtro.fecha}]},skip,limit))
+        }else{const listado = await (Publicaciones.lista({$or:[{usuario:filtro.usuario},{texto:filtro.texto},{fecha:filtro.fecha},{imagen:filtro.imagen}]},skip,limit))
         res.json({listado})}   
     
 

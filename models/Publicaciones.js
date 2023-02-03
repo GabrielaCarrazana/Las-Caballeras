@@ -12,7 +12,7 @@ const publicacionesSchema = mongoose.Schema({
 });
 
 publicacionesSchema.statics.lista = function (filtro,skip,limit){
-  const consultaBD = Publicaciones.find(filtro)
+  const consultaBD = Publicaciones.find(filtro).sort({fecha:-1})
   consultaBD.skip(skip);
   consultaBD.limit(limit);
   return consultaBD.exec()
