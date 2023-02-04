@@ -4,19 +4,18 @@ const connection = require('./lib/ConectToMongoose');
 const Publicaciones = require('./models/Publicaciones');
 const followers = require('./models/Followers');
 
-
 async function main() {
-// preguntar al usuario si está seguro
+        // preguntar al usuario si está seguro
         const continuar = await preguntaSiNo('Estas seguro, seguro, seguro, que quieres borrar la base de datos? [n]')
         if (!continuar) {
-                process.exit();}
+                process.exit();
+        }
+        // inicializar las colecciones
+        await initPublicaciones();
+        await initfollowers();
 
-// inicializar la colección de agentes
-await initPublicaciones();
-await initfollowers();
-
-// desconectamos de la base de datos
-connection.close();
+        // desconectamos de la base de datos
+        connection.close();
 }
 main().catch(err => console.log('Hubo un error', err));
 
