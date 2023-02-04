@@ -29,14 +29,14 @@ console.log(`Eliminados ${result.deletedCount} post.`);
 const inserted = await Publicaciones.insertMany([
     
         {
-        "fecha": "27/12/2022",
+        "fecha": new Date(),
         "usuario": "Gabriela",
         "texto": "texto de prueba",
         "imagen": "bici.jpg",
         
         },
         {
-        "fecha": "30/12/2022",
+        "fecha": new Date(),
         "usuario": "Gabriela",
         "texto": "texto de prueba",
         "imagen": "bici.jpg",
