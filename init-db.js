@@ -57,10 +57,22 @@ async function initfollowers() {
             
                 {
                 
-                "usuario": "Gabriela",
-                "usuario_seguido": "Claudia",
-                
-                
+                "follow_by": "Gabriela",
+                "follow_of": "Claudia",
+                },
+
+                {
+                "follow_by": "Claudia",
+                "follow_of": "Gabriela",
+                },
+
+                {
+                "follow_by": "Claudia",
+                "follow_of": "Amelia",
+                },
+                {
+                "follow_by": "Claudia",
+                "follow_of": "Monica",
                 },
                 
                 

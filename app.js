@@ -15,6 +15,7 @@ require('./lib/ConectToMongoose');
 
 //rutas a api
 app.use('/api/listadeposts', require('./api/post_api'));
+app.use('/api/seguidores',require('./api/followers_api.js'));
 
 
 
@@ -37,6 +38,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

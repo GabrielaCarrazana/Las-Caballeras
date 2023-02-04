@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 
 //definir un anuncio
 const followersSchema = mongoose.Schema({
-    usuario: String ,
-    usuario_seguido:String,
+    follow_by: String ,
+    follow_of:String,
     
 });
 
