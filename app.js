@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var honorsRouter = require('./routes/honors');
+
 
 var app = express();
 
@@ -17,6 +17,8 @@ require('./lib/ConectToMongoose');
 //rutas a api
 app.use('/api/listadeposts', require('./api/post_api'));
 app.use('/api/seguidores',require('./api/followers_api.js'));
+
+
 
 
 
